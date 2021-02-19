@@ -1,0 +1,25 @@
+#spring:
+#  datasource:
+#    url: "jdbc:postgresql://localhost:5432/asgsra"
+#    username: <>
+#    password: <>
+
+server:
+  compression:
+    enabled: true
+    excluded-user-agents: "msie6"
+    mime-types: "application/javascript,application/json,application/x-font-ttf,application/vnd.ms-fontobject,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,font/opentype,image/svg+xml,image/x-icon,text/css,text/csv,text/plain,text/xml"
+    min-response-size: "2KB"
+  error:
+    include-stacktrace: never
+
+spring:
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+      WRITE_DURATIONS_AS_TIMESTAMPS: false
+  jpa:
+    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
