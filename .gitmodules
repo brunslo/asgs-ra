@@ -1,0 +1,3 @@
+[submodule "asgs-ra-postgis"]
+	path = asgs-ra-postgis
+	url = https://github.com/brunslo/asgs-ra-postgis.git
