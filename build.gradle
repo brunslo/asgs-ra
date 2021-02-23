@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.brunslo.asgsra'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_15
@@ -39,7 +39,7 @@ bootJar {
 }
 
 wrapper {
-    gradleVersion = '6.6'
+    gradleVersion = '6.7.1'
 }
 
 tasks.withType(JavaCompile) {
