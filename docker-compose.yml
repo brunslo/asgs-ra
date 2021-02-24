@@ -1,0 +1,39 @@
+version: '3'
+services:
+  asgs-ra:
+    image: ghcr.io/brunslo/asgs-ra:latest
+    container_name: asgs-ra
+    build: ./
+    depends_on:
+      - asgs-ra-postgis
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_USERNAME: asgsra
+      SPRING_DATASOURCE_PASSWORD: asgsra
+      SPRING_DATASOURCE_URL: jdbc:postgresql://asgs-ra-postgis:5432/asgsra
+    logging:
+      options:
+        max-size: 50m
+    ports:
+      - "8080:8080"
+    networks:
+      - asgsra
+
+  asgs-ra-postgis:
+    image: ghcr.io/brunslo/asgs-ra-postgis:latest
+    container_name: asgs-ra-postgis
+    build: ./asgs-ra-postgis
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: asgsra
+      POSTGRES_PASSWORD: asgsra
+    logging:
+      options:
+        max-size: 50m
+    expose:
+      - "5432"
+    networks:
+      - asgsra
+networks:
+  asgsra:
